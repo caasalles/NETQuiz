@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+:root {
+    --hue-neutral: 200;
+    --hue-wrong: 0;
+    --hue-correct: 145;
+  }
+
+body {
+    --hue: var(--hue-neutral);
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to left top, #6a7ac6, #6f7ccc, #757fd3, #7b81d9, #8183df, #7e8ae6, #7a91ec, #7798f2, #6aa4f7, #61b0fa, #5cbbfb, #5fc5fb);
+
+}
+    body.correct {
+    --hue: var(--hue-correct);
+    }
+  
+    body.wrong {
+    --hue: var(--hue-wrong);
+    }
+.container {
+    width: 800px;
+    max-width: 80%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 5px 1px;
+    opacity: 85%;
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.btn, .btn-st, .btn-nx{
+    border: 1px solid rgb(119, 119, 255);
+    border-radius: 10px;
+    border: 2px solid hsl(var(--hue), 100%, 60%);
+    background-image: linear-gradient(to left bottom, #dcdcdc, #d6d7e0, #cad3e5, #bad1e8, #a6cfea, #a6cfea, #a6cfea, #a6cfea, #bad1e8, #cad3e5, #d6d7e0, #dcdcdc);
+    padding: 12px 10px;
+    color: rgb(138, 138, 138);
+    outline: none;
+
+    
+}
+.btn:hover{
+    -webkit-filter: drop-shadow(3px 5px 1px rgba(83, 83, 83, 0.5));
+    filter: drop-shadow(3px 5px 1px rgba(83, 83, 83, 0.5));
+}
+
+.btn.correct {
+    --hue: var(--hue-correct);
+    color: rgb(255, 255, 255);
+  }
+  
+.btn.wrong {
+    --hue: var(--hue-wrong);
+  }
+
+.btn-st, .btn-nx{
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding:10px 20px ;
+}
+.controle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    gap: 10px;
+
+}
+.banner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+   
+}
+#questoes {
+    display: grid;
+    justify-items: center;
+    color: rgb(138, 138, 138);
+    font-size: 25px;
+}
+.hide {
+    display: none;
+}
+.question-image {
+    display: flex;
+    justify-content: center;
+    max-width: 60%;
+    height: auto;
+    margin-bottom: 10px;
+}
+.boas{
+    display: flex;
+    justify-content: center;
+}

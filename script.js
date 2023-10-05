@@ -13,15 +13,11 @@ nextButton.addEventListener('click', () => {
 });
 
 function startGame() {
-  // Pede o nome do jogador
   const playerName = prompt('Bem-vindo(a) ao NetQUIZ! Por favor, insira seu nome:');
-  
   if (playerName === null || playerName.trim() === '') {
     alert('Por favor, insira um nome válido para começar o jogo.');
     return;
   }
-
-  // Exibe uma mensagem de boas-vindas personalizada
   alert(`Olá, ${playerName}! Bem-vindo(a) ao NetQUIZ. Boa sorte!`);
   
   startButton.classList.add('hide');
@@ -42,18 +38,15 @@ function showQuestion(question) {
     answersButtonsElement.removeChild(answersButtonsElement.firstChild);
   }
 
-  // Exibe a imagem
   const image = document.createElement('img');
   image.src = question.imageUrl;
   image.classList.add('question-image');
   questionElement.appendChild(image);
 
-  // Exibe a pergunta
   const questionText = document.createElement('div');
   questionText.innerText = question.question;
   questionElement.appendChild(questionText);
 
-  // Exibe as opções de resposta
   question.answers.forEach(answer => {
     const button = document.createElement('button');
     button.innerText = answer.text;
@@ -84,16 +77,16 @@ function selectAnswer(e) {
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
       nextButton.classList.remove('hide');
     } else {
-      // Todas as perguntas foram respondidas, mostre um agradecimento
+
       alert('Parabéns! Você concluiu o jogo. Obrigado(a) por jogar!');
       
-      // Volte para a tela inicial
+
       startButton.innerText = 'INICIAR JOGO';
       startButton.classList.remove('hide');
       questionContainerElement.classList.add('hide');
     }
   } else {
-    // A resposta está errada, mostre um alerta e volte ao início
+
     alert('Resposta incorreta. Tente Novamente :))');
     startButton.innerText = 'INICIAR JOGO';
     startButton.classList.remove('hide');

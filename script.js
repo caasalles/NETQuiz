@@ -14,7 +14,7 @@ nextButton.addEventListener('click', () => {
 
 function startGame() {
   // Pede o nome do jogador
-  const playerName = prompt('Bem-vindo ao NetQUIZ! Por favor, insira seu nome:');
+  const playerName = prompt('Bem-vindo(a) ao NetQUIZ! Por favor, insira seu nome:');
   
   if (playerName === null || playerName.trim() === '') {
     alert('Por favor, insira um nome válido para começar o jogo.');
@@ -22,7 +22,7 @@ function startGame() {
   }
 
   // Exibe uma mensagem de boas-vindas personalizada
-  alert(`Olá, ${playerName}! Bem-vindo ao NetQUIZ. Boa sorte!`);
+  alert(`Olá, ${playerName}! Bem-vindo(a) ao NetQUIZ. Boa sorte!`);
   
   startButton.classList.add('hide');
   shuffledQuestions = questions.sort(() => Math.random() - .5);
@@ -84,15 +84,20 @@ function selectAnswer(e) {
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
       nextButton.classList.remove('hide');
     } else {
-      startButton.innerText = 'REINICIAR';
+      // Todas as perguntas foram respondidas, mostre um agradecimento
+      alert('Parabéns! Você concluiu o jogo. Obrigado(a) por jogar!');
+      
+      // Volte para a tela inicial
+      startButton.innerText = 'INICIAR JOGO';
       startButton.classList.remove('hide');
+      questionContainerElement.classList.add('hide');
     }
   } else {
     // A resposta está errada, mostre um alerta e volte ao início
     alert('Resposta incorreta. Tente Novamente :))');
-    startButton.innerText = 'JOGAR'; // Altera o texto do botão para "JOGAR"
-    startButton.classList.remove('hide'); // Exibe o botão "JOGAR"
-    questionContainerElement.classList.add('hide'); // Esconde o container de perguntas
+    startButton.innerText = 'INICIAR JOGO';
+    startButton.classList.remove('hide');
+    questionContainerElement.classList.add('hide');
   }
 }
 
